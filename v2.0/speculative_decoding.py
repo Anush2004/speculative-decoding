@@ -85,8 +85,8 @@ def speculative_generate(
             use_cache=use_cache,
         )
         target_cache = Mp.past_key_values
-        p_p = logits_processor(Mp.logits[..., -1, :])#?
-        t = logits_processor.sample(p_p)#?
+        p_p = logits_processor(Mp.logits[..., -1, :])
+        t = logits_processor.sample(p_p)
         input_ids[0, current_position] = t
         current_position += 1
         
